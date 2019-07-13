@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Twitter -->
+      <meta name="twitter:site" content="@themepixels">
+      <meta name="twitter:creator" content="@themepixels">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Slim">
+      <meta name="twitter:description" content="Premium Quality and Responsive UI for Dashboard.">
+      <meta name="twitter:image" content="http://themepixels.me/slim/img/slim-social.png">
+      <!-- Facebook -->
+      <meta property="og:url" content="http://themepixels.me/slim">
+      <meta property="og:title" content="Slim">
+      <meta property="og:description" content="Premium Quality and Responsive UI for Dashboard.">
+      <meta property="og:image" content="http://themepixels.me/slim/img/slim-social.png">
+      <meta property="og:image:secure_url" content="http://themepixels.me/slim/img/slim-social.png">
+      <meta property="og:image:type" content="image/png">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="600">
+      <!-- Meta -->
+      <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
+      <meta name="author" content="ThemePixels">
+      <title>Redeem</title>
+      <!-- vendor css -->
+      <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+      <link href="../lib/Ionicons/css/ionicons.css" rel="stylesheet">
+      <link href="../lib/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
+      <!-- Slim CSS -->
+      <link rel="stylesheet" href="../css/slim.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+      <link rel="stylesheet" href="../css/slim.css">
+      <style>
+    .custom-file-input:lang(en) ~ .custom-file-label::after {
+    content: "view trx";
+}
+    </style>
+   </head>
+   <body>
+      <div class="slim-header with-sidebar">
+         <div class="container-fluid">
+            <div class="slim-header-left">
+               <h2 class="slim-logo"><a href="index.html">slim<span>.</span></a></h2>
+               <a href="" id="slimSidebarMenu" class="slim-sidebar-menu"><span></span></a>
+               <div class="search-box">
+                  <input type="text" class="form-control" placeholder="Search">
+                  <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+               </div>
+               <!-- search-box -->
+            </div>
+            <!-- slim-header-left -->
+            <div class="slim-header-right">
+               <div class="dropdown dropdown-a" data-toggle="tooltip" title="Activity Logs">
+                  <a href="" class="header-notification" data-toggle="dropdown">
+                  <i class="icon ion-ios-bolt-outline"></i>
+                  </a>
+                  <div class="dropdown-menu">
+                     <div class="dropdown-menu-header">
+                        <h6 class="dropdown-menu-title">Activity Logs</h6>
+                        <div>
+                           <a href="">Filter List</a>
+                           <a href="">Settings</a>
+                        </div>
+                     </div>
+                     <!-- dropdown-menu-header -->
+                     <div class="dropdown-activity-list">
+                        <div class="activity-label">Today, December 13, 2017</div>
+                        <div class="activity-item">
+                           <div class="row no-gutters">
+                              <div class="col-2 tx-right">10:15am</div>
+                              <div class="col-2 tx-center"><span class="square-10 bg-success"></span></div>
+                              <div class="col-8">Purchased christmas sale cloud storage</div>
+                           </div>
+                           <!-- row -->
+                        </div>
+                        <!-- activity-item -->
+                        <div class="activity-item">
+                           <div class="row no-gutters">
+                              <div class="col-2 tx-right">9:48am</div>
+                              <div class="col-2 tx-center"><span class="square-10 bg-danger"></span></div>
+                              <div class="col-8">Login failure</div>
+                           </div>
+                           <!-- row -->
+                        </div>
+                        <!-- activity-item -->
+                        <div class="activity-item">
+                           <div class="row no-gutters">
+                              <div class="col-2 tx-right">7:29am</div>
+                              <div class="col-2 tx-center"><span class="square-10 bg-warning"></span></div>
+                              <div class="col-8">(D:) Storage almost full</div>
+                           </div>
+                           <!-- row -->
+                        </div>
+                        <!-- activity-item -->
+                        <div class="activity-item">
+                           <div class="row no-gutters">
+                              <div class="col-2 tx-right">3:21am</div>
+                              <div class="col-2 tx-center"><span class="square-10 bg-success"></span></div>
+                              <div class="col-8">1 item sold <strong>Christmas bundle</strong></div>
+                           </div>
+                           <!-- row -->
+                        </div>
+                        <!-- activity-item -->
+                        <div class="activity-label">Yesterday, December 12, 2017</div>
+                        <div class="activity-item">
+                           <div class="row no-gutters">
+                              <div class="col-2 tx-right">6:57am</div>
+                              <div class="col-2 tx-center"><span class="square-10 bg-success"></span></div>
+                              <div class="col-8">Earn new badge <strong>Elite Author</strong></div>
+                           </div>
+                           <!-- row -->
+                        </div>
+                        <!-- activity-item -->
+                     </div>
+                     <!-- dropdown-activity-list -->
+                     <div class="dropdown-list-footer">
+                        <a href="page-activity.html"><i class="fa fa-angle-down"></i> Show All Activities</a>
+                     </div>
+                  </div>
+                  <!-- dropdown-menu-right -->
+               </div>
+               <!-- dropdown -->
+               <div class="dropdown dropdown-b" data-toggle="tooltip" title="Notifications">
+                  <a href="" class="header-notification" data-toggle="dropdown">
+                  <i class="icon ion-ios-bell-outline"></i>
+                  <span class="indicator"></span>
+                  </a>
+                  <div class="dropdown-menu">
+                     <div class="dropdown-menu-header">
+                        <h6 class="dropdown-menu-title">Notifications</h6>
+                        <div>
+                           <a href="">Mark All as Read</a>
+                           <a href="">Settings</a>
+                        </div>
+                     </div>
+                     <!-- dropdown-menu-header -->
+                     <div class="dropdown-list">
+                        <!-- loop starts here -->
+                        <a href="" class="dropdown-link">
+                           <div class="media">
+                              <img src="http://via.placeholder.com/500x500" alt="">
+                              <div class="media-body">
+                                 <p><strong>Suzzeth Bungaos</strong> tagged you and 18 others in a post.</p>
+                                 <span>October 03, 2017 8:45am</span>
+                              </div>
+                           </div>
+                           <!-- media -->
+                        </a>
+                        <!-- loop ends here -->
+                        <a href="" class="dropdown-link">
+                           <div class="media">
+                              <img src="http://via.placeholder.com/500x500" alt="">
+                              <div class="media-body">
+                                 <p><strong>Mellisa Brown</strong> appreciated your work <strong>The Social Network</strong></p>
+                                 <span>October 02, 2017 12:44am</span>
+                              </div>
+                           </div>
+                           <!-- media -->
+                        </a>
+                        <a href="" class="dropdown-link read">
+                           <div class="media">
+                              <img src="http://via.placeholder.com/500x500" alt="">
+                              <div class="media-body">
+                                 <p>20+ new items added are for sale in your <strong>Sale Group</strong></p>
+                                 <span>October 01, 2017 10:20pm</span>
+                              </div>
+                           </div>
+                           <!-- media -->
+                        </a>
+                        <a href="" class="dropdown-link read">
+                           <div class="media">
+                              <img src="http://via.placeholder.com/500x500" alt="">
+                              <div class="media-body">
+                                 <p><strong>Julius Erving</strong> wants to connect with you on your conversation with <strong>Ronnie Mara</strong></p>
+                                 <span>October 01, 2017 6:08pm</span>
+                              </div>
+                           </div>
+                           <!-- media -->
+                        </a>
+                        <div class="dropdown-list-footer">
+                           <a href="page-notifications.html"><i class="fa fa-angle-down"></i> Show All Notifications</a>
+                        </div>
+                     </div>
+                     <!-- dropdown-list -->
+                  </div>
+                  <!-- dropdown-menu-right -->
+               </div>
+               <!-- dropdown -->
+               <div class="dropdown dropdown-c">
+                  <a href="#" class="logged-user" data-toggle="dropdown">
+                  <img src="http://via.placeholder.com/500x500" alt="">
+                  <span>Katherine</span>
+                  <i class="fa fa-angle-down"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                     <nav class="nav">
+                        <a href="page-profile.html" class="nav-link"><i class="icon ion-person"></i> View Profile</a>
+                        <a href="page-edit-profile.html" class="nav-link"><i class="icon ion-compose"></i> Edit Profile</a>
+                        <a href="page-activity.html" class="nav-link"><i class="icon ion-ios-bolt"></i> Activity Log</a>
+                        <a href="page-settings.html" class="nav-link"><i class="icon ion-ios-gear"></i> Account Settings</a>
+                        <a href="page-signin.html" class="nav-link"><i class="icon ion-forward"></i> Sign Out</a>
+                     </nav>
+                  </div>
+                  <!-- dropdown-menu -->
+               </div>
+               <!-- dropdown -->
+            </div>
+            <!-- header-right -->
+         </div>
+         <!-- container-fluid -->
+      </div>
+      <!-- slim-header -->
+      <div class="slim-body">
+         <div class="slim-sidebar">
+            <label class="sidebar-label">Navigation</label>
+            <ul class="nav nav-sidebar">
+               <li class="sidebar-nav-item with-sub">
+                  <a href="" class="sidebar-nav-link active"><i class="icon ion-ios-home-outline"></i> Settings</a>
+                  <ul class="nav sidebar-nav-sub">
+                     <li class="nav-sub-item"><a href="pawn.html" class="nav-sub-link ">Pawn</a></li>
+                     <li class="nav-sub-item"><a href="bank.html" class="nav-sub-link ">Bank</a></li>
+                     <li class="nav-sub-item"><a href="pawnlimit.html" class="nav-sub-link">Pawn Limit</a></li>
+                     <li class="nav-sub-item"><a href="profile.html" class="nav-sub-link">Profile</a></li>
+                     <li class="nav-sub-item"><a href="calendar.html" class="nav-sub-link">Calendar</a></li>
+                     <li class="nav-sub-item"><a href="redeem.html" class="nav-sub-link active">Redeem</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </div>
+         <!-- slim-sidebar -->
+         <div class="slim-mainpanel">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-12">
+                     <div class="row ">
+                        <div class="col-lg-12 col-xl-12 col-md-12">
+                           <div class="slim-pageheader">
+                              <ol class="breadcrumb slim-breadcrumb">
+                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                 <li class="breadcrumb-item active" aria-current="page">Blank Page</li>
+                              </ol>
+                              <h6 class="slim-pagetitle">Redeem</h6>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- section-wrapper -->
+                  </div>
+               </div>
+               <div class="card">
+                  <div class="card-body">
+                     <div class="row">
+                        <div class="col-lg-6 col-sm-12">
+                           <div class="card h-100">
+                              <div class="card-header tx-white bg-primary">
+                                 Pawn Detail Information
+                              </div>
+                              <ul class="list-group list-group-flush">
+                                 <li class="list-group-item">
+                                   <div class="row pd-b-10">
+                                     <div class="col-12 tx-right font-weight-bold">2018 Oct, 09 at 09:09am</div>
+                                   </div>
+                                   <div class="row">
+                                     <div class="col-6 font-weight-bold">Order ID</div>
+                                     <div class="col-6 font-weight-bold">Payment Method</div>
+                                   </div>
+                                   <div class="row">
+                                     <div class="col-6">ORDR-20180909-S9090909</div>
+                                     <div class="col-6 ">Bank Transfer</div>
+                                   </div>
+                                 </li>
+                                 <li class="list-group-item">
+                                   <div class="row">
+                                     <div class="col-6 font-weight-bold">Pawn Status :</div>
+                                     <div class="col-6 font-weight-bold">Pawn Period</div>
+                                   </div>
+                                   <div class="row">
+                                     <div class="col-6"><span class="badge badge-primary">Moderation</span><span> ,1 Minute ago</span></div>
+                                     <div class="col-6">2018 Oct, 01 - at 2018 Oct, 30</div>
+                                   </div>
+                                 </li>
+                                 <li class="list-group-item">
+                                   <div class="row">
+                                     <div class="col-6 font-weight-bold">Total Pawn</div>
+                                     <div class="col-6 font-weight-bold">Total Pawn Amount</div>
+                                   </div>
+                                   <div class="row">
+                                     <div class="col-6">1.0 BTC</div>
+                                     <div class="col-6">195.000.000 IDR</div>
+                                   </div>
+                                 </li>
+                                 <li class="list-group-item">
+                                   <div class="row">
+                                     <div class="col-6 font-weight-bold">IDR/Bitcoin BTC rate</div>
+                                     <div class="col-6 font-weight-bold">Pawn Duration</div>
+                                   </div>
+                                   <div class="row">
+                                     <div class="col-6">195.000.000/1 BTC</div>
+                                     <div class="col-6">30 Days</div>
+                                   </div>
+                                 </li>
+                                 <li class="list-group-item">
+                                   <div class="row">
+                                     <div class="col-6 font-weight-bold">Customer address</div>
+                                   </div>
+                                   <div class="row">
+                                     <div class="col-12 mg-lg-t-0">
+                                       <div class="form-group">
+    <label></label>
+    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Address" readonly>
+  </div>
+                                     </div><!-- col -->
+                                   </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12">
+                          <div class="card h-100">
+                             <div class="card-header tx-white bg-primary">
+                                Bank Account Destination
+                             </div>
+                             <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                  <div class="row">
+                                    <div class="col-5">Invoice No</div> :
+                                    <div class="col-6 ">INV/20180909/X/V/3999</div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-5">Total Bill</div> :
+                                    <div class="col-6 ">195.000.000 IDR</div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-5">Payment Date</div> :
+                                    <div class="col-6 ">2018 Oct, 09 at 09:09am</div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-5">Bank Name</div> :
+                                    <div class="col-6 ">Bank Mandiri</div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-5">Bank Account Name</div> :
+                                    <div class="col-6 ">BitRahnu sdn bhd</div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-5">Bank Account</div> :
+                                    <div class="col-6 ">901823901290</div>
+                                  </div>
+                                </li>
+                             </ul>
+                             <div class="card-header tx-white bg-primary">
+                                Bank Account Source
+                             </div>
+                             <ul class="list-group list-group-flush">
+                               <li class="list-group-item">
+                                 <div class="row">
+                                   <div class="col-5">Bank Name</div> :
+                                   <div class="col-6 ">Bank Mandiri</div>
+                                 </div>
+                                 <div class="row">
+                                   <div class="col-5">Bank Account Name</div> :
+                                   <div class="col-6 ">Daniel Ishutin</div>
+                                 </div>
+                                 <div class="row">
+                                   <div class="col-5">Bank Account Number</div> :
+                                   <div class="col-6 ">871236178639</div>
+                                 </div>
+                                 <div class="row">
+                                   <div class="col-5">Amount to be paid</div> :
+                                   <div class="col-6 ">195.000.000 IDR</div>
+                                 </div>
+                                 <div class="row">
+                                   <div class="col-5">Transfer Date</div> :
+                                   <div class="col-6 ">2018 Aug, 30 at 09:09am</div>
+                                 </div>
+                                 <div class="row">
+                                   <div class="col-5">Proof of payment</div> :
+                                   <div class="col-6 "><a href"#">Transfer Invoice</a></div>
+                                 </div>
+                                 <div class="row">
+                                   <div class="col-5">Notes</div> :
+                                   <div class="col-6 ">lorem ipsum dolor, lorem ipsum dolor lorem ipsum dolor</div>
+                                 </div>
+                               </li>
+                             </ul>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- container -->
+            <!-- Modal -->
+         </div>
+         <!-- slim-mainpanel -->
+      </div>
+      <!-- slim-body -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <script src="../js/ResizeSensor.js"></script>
+      <script src="../js/slim.js"></script>
+      <script src="../lib/chart.js/js/Chart.js"></script>
+      <script src="../lib/rickshaw/js/rickshaw.min.js"></script>
+      <script src="../lib/d3/js/d3.js"></script>
+      <script src="../lib/jquery.cookie/js/jquery.cookie.js"></script>
+      <script src="../lib/bootstrap/js/bootstrap.js"></script>
+      <script src="../lib/popper.js/js/popper.js"></script>
+      <script src="../lib/jquery/js/jquery.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+   </body>
+</html>
