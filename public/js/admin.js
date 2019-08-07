@@ -75616,8 +75616,8 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/macbookpro/Documents/Work/transport-system/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
-module.exports = __webpack_require__(/*! /Users/macbookpro/Documents/Work/transport-system/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /Users/macbookpro/Documents/Work/skeleton/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
+module.exports = __webpack_require__(/*! /Users/macbookpro/Documents/Work/skeleton/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

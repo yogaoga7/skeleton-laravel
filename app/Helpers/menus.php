@@ -1,6 +1,14 @@
 <?php 
 
 	return [
+		[
+            'display' => ' Users',
+            'uniqkey' => 'users.menu',
+            'url' => '/administrator/users',
+            'classId' => '',
+            'className' => '',
+            'classIcon' => 'ion-ios-person-outline',
+        ],
         [
 			'display' => ' Access menus',
 			'uniqkey' => 'access.group.menu',

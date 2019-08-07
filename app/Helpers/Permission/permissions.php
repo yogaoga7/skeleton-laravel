@@ -1,7 +1,33 @@
 <?php
 
   return [
-
+      'Users' => [
+          [
+            'slug' => 'index-user-admin',
+            'name' => 'List table user admin',
+            'description' => 'Access for list table user admin'
+          ],
+          [
+            'slug' => 'create-user-admin',
+            'name' => 'Create table user admin',
+            'description' => 'Access for create table user admin'
+          ],
+          [
+            'slug' => 'edit-user-admin',
+            'name' => 'Edit table user admin',
+            'description' => 'Access for edit table user admin'
+          ],
+          [
+            'slug' => 'destroy-user-admin',
+            'name' => 'Destroy table user admin',
+            'description' => 'Access for Destroy table user admin'
+          ],
+          [
+            'slug' => 'show-user-admin',
+            'name' => 'Show table user admin',
+            'description' => 'Access for Show table user admin'
+          ],
+      ],
       'Roles & Permission' => [
           [
               'slug' => 'index-role-admin',
@@ -36,12 +62,12 @@
           [
               'slug' => 'attach-role-access',
               'name' => 'Attach role access',
-              'description' => 'Accessed for attach role access'
+              'description' => 'Access for attach role access'
           ],
           [
               'slug' => 'attach-permission-access',
               'name' => 'Attach permission access',
-              'description' => 'Accessed for attach permission'
+              'description' => 'Access for attach permission'
           ]
       ]
   ];

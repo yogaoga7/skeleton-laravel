@@ -54,10 +54,6 @@ class AccessModuleController extends Controller {
             }
         }
 
-        session()->flash('alert', [
-            'type' => 'success',
-            'messages' => ['Update has been successfully']
-        ]);
         flash('Update has been successfully', 'success');
 
         return redirect()->back();
@@ -89,10 +85,7 @@ class AccessModuleController extends Controller {
             }
         }
 
-        session()->flash('alert', [
-            'type' => 'success',
-            'messages' => ['Update has been successfully']
-        ]);
+        flash('Update has been successfully', 'success');
 
         return redirect()->back();
 

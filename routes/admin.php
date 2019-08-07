@@ -11,6 +11,8 @@ Route::group([ 'as' => 'admin.' ], function () {
         Route::get('/logout', 'AuthController@logout');
         Route::group(['middleware' => 'access.admin'], function (){
 
+            Route::resource('users', 'User\UserController');
+
             Route::prefix('/access')->group(function() {
                 /**
                  * Role access
