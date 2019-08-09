@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use Gate;
 use App\User;
+use App\Models\Role;
+
+use DataTables;
+use Gate;
 
 class UserController extends Controller
 {
@@ -15,7 +18,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if(!Gate::allows('index-user-admin')) {
             return abort(403);
@@ -38,6 +41,10 @@ class UserController extends Controller
         if(!Gate::allows('create-user-admin')) {
             return abort(403);
         }
+
+        $roles = Role::whereState('active')->pluck('name', 'id');
+
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -48,7 +55,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->merge([ 'password' => bcrypt($request->password) ]);
+
+            $user = User::create($request->all());
+
+            $user->roles()->attach($request->role_id);
+
+            flash('Account '. $user->email.' successfully created', 'success');
+            return redirect()->route('admin.users.index');
+        } catch (\Exception $e) {
+            flash('Failed '. $e->getMessage(), 'error');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -62,6 +81,10 @@ class UserController extends Controller
         if(!Gate::allows('show-user-admin')) {
             return abort(403);
         }
+
+        $user = User::findOrFail($id);
+
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -75,6 +98,11 @@ class UserController extends Controller
         if(!Gate::allows('edit-user-admin')) {
             return abort(403);
         }
+        
+        $user = User::findOrFail($id);
+        $roles = Role::whereState('active')->pluck('name', 'id');
+
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -86,7 +114,23 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $user = User::findOrFail($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            if ($request->password) {
+                $user->password = bcrypt($request->password);
+            }
+            $user->save();
+            $user->roles()->attach($request->role_id);
+
+            flash('Account '. $user->email.' successfully updated', 'success');
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            flash('Failed '. $e->getMessage(), 'error');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -102,24 +146,18 @@ class UserController extends Controller
 
     protected function datatables()
     {
-        $infaqs = User::all();
+        $user = User::all();
 
-        return DataTables::of($infaqs)
+        return DataTables::of($user)
             ->addColumn('action', function ($infaq){
-                return view('admin.infaq._button._action', [
-                    'model_button'      => $infaq,
-                    'edit_button'       => route('master-infaq.edit', $infaq->id),
-                    'delete_button'     => route('master-infaq.destroy', $infaq->id),
-                    'show_button'     => route('infaq-packages.show', $infaq->id),
-                    'url_access_role'   => url('administrator/access/role', $infaq->id),
-                    'url_access_permissions'   => url('administrator/access/permission', $infaq->id),
+                return view('admin.components.action-buttons', [
+                    'edit_url'       => route('admin.users.edit', $infaq->id),
+                    'delete_url'     => route('admin.users.destroy', $infaq->id),
+                    'show_url'     => route('admin.users.show', $infaq->id)
                 ]);
             })
             ->addColumn('created_at', function ($infaq){
                 return $infaq->created_at->format('d F Y \a\t h:i A');
-            })
-            ->addColumn('description', function ($infaq) {
-                return (strlen($infaq->description) > 13) ? substr($infaq->description,0,10).'...' : $infaq->description;
             })
             ->escapeColumns([])
             ->make(true);

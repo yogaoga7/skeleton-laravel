@@ -54,12 +54,7 @@
             <div class="slim-mainpanel">
                 <div class="container">
                     @include('admin.layouts.alert')
-                    <div class="slim-pageheader">
-                        <ol class="breadcrumb slim-breadcrumb">
-                            {{--<li class="breadcrumb-item"><a href="#">Home</a></li>--}}
-                            {{--<li class="breadcrumb-item active" aria-current="page">Blank Page</li>--}}
-                        </ol>
-                    </div>
+                    @include('admin.components.breadcrumb')
                     @yield('content')
                 </div>
                 @yield('footer')

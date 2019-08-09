@@ -1,8 +1,11 @@
 @extends('admin.layouts.master')
+@section('title')
+Users 
+<a href="{{ route('admin.users.create') }}" class="btn btn-outline-primary "> <i class="fa fa-plus"></i> Add New </a>
+@endsection
 
 @section('content')
 <div class="section-wrapper">
-    <label class="section-title">Basic Form Input</label>
     @component('admin.components.datatables', [
         'name' => 'data-tables',
         'thead' => [  __('Name'), __('Email'), __('State'), __('Created at'), __('Action') ],
@@ -23,12 +26,3 @@
 
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    $(document).ready(function () {
-        $('#table_id').DataTable();
-    });
-
-</script>
-@endpush

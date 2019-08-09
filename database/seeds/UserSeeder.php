@@ -15,6 +15,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        User::truncate();
+        Role::truncate();
         
         if(!Role::count()) {
             $role = Role::create([
@@ -22,6 +24,7 @@ class UserSeeder extends Seeder
                 'slug' => 'superadmin',
                 'description' => 'Top level for access all modules',
                 'permissions' => \Permission::slugs(),
+                'state' => 'active'
                 // 'notifications' => \NotifyAdmin::slugs(),
                 // 'dashboard_access' => []
             ]);

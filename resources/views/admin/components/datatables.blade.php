@@ -4,10 +4,11 @@
   $options = isset($options) ? $options : [];
   $id = isset($id) ? $id : '';
   $name = isset($name) ? str_slug($name) : 'data-tables';
+  $responsive = isset($responsive) ? $responsive : '';
 @endphp
 
 
-<div class="table-responsive">
+<div class="{{ $responsive }}">
   <table class="table {{ $name }} {{ $class }}" id="{{ $id }}" style="width:100%">
     <thead>
       <tr>

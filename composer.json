@@ -14,7 +14,9 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
         "nanigans/single-table-inheritance": "0.8.*",
-        "spatie/laravel-flash": "^1.2"
+        "spatie/laravel-flash": "^1.2",
+        "yajra/laravel-datatables-html": "^4.4",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
