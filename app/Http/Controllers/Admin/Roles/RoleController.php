@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin\User;
+namespace App\Http\Controllers\Admin\Roles;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\User;
 use App\Models\Role;
 
-use DataTables;
 use Gate;
+use DataTables;
 
-class UserController extends Controller
+
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        if(!Gate::allows('index-user-admin')) {
+        if(!Gate::allows('index-role-admin')) {
             return abort(403);
         }
 
@@ -28,7 +28,7 @@ class UserController extends Controller
             return $this->datatables();
         }
 
-        return view('admin.users.index');
+        return view('admin.roles.index');
     }
 
     /**
@@ -38,13 +38,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        if(!Gate::allows('create-user-admin')) {
+        if(!Gate::allows('create-role-admin')) {
             return abort(403);
         }
 
-        $roles = Role::whereState('active')->pluck('name', 'id');
-
-        return view('admin.users.create', compact('roles'));
+        return view('admin.roles.create');
     }
 
     /**
@@ -58,12 +56,10 @@ class UserController extends Controller
         try {
             $request->merge([ 'password' => bcrypt($request->password) ]);
 
-            $user = User::create($request->all());
+            $role = Role::create($request->all());
 
-            $user->roles()->attach($request->role_id);
-
-            flash('Account '. $user->email.' successfully created', 'success');
-            return redirect()->route('admin.users.index');
+            flash('Role '. $role->slug.' successfully created', 'success');
+            return redirect()->route('admin.roles.index');
         } catch (\Exception $e) {
             flash('Failed '. $e->getMessage(), 'error');
             return redirect()->back();
@@ -78,13 +74,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        if(!Gate::allows('show-user-admin')) {
+        if(!Gate::allows('show-role-admin')) {
             return abort(403);
         }
 
-        $user = User::findOrFail($id);
+        $role = Role::findOrFail($id);
 
-        return view('admin.users.show', compact('user'));
+        return view('admin.roles.show', compact('role'));
     }
 
     /**
@@ -95,14 +91,13 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        if(!Gate::allows('edit-user-admin')) {
+        if(!Gate::allows('edit-role-admin')) {
             return abort(403);
         }
         
-        $user = User::findOrFail($id);
-        $roles = Role::whereState('active')->pluck('name', 'id');
+        $role = Role::findOrFail($id);
 
-        return view('admin.users.edit', compact('user', 'roles'));
+        return view('admin.roles.edit', compact('role'));
     }
 
     /**
@@ -115,16 +110,10 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $user = User::findOrFail($id);
-            $user->name = $request->name;
-            $user->email = $request->email;
-            if ($request->password) {
-                $user->password = bcrypt($request->password);
-            }
-            $user->save();
-            $user->roles()->attach($request->role_id);
+            $role = Role::findOrFail($id);
+            
 
-            flash('Account '. $user->email.' successfully updated', 'success');
+            flash('Role '. $role->email.' successfully updated', 'success');
 
             return redirect()->back();
         } catch (\Exception $e) {
@@ -146,18 +135,18 @@ class UserController extends Controller
 
     protected function datatables()
     {
-        $user = User::all();
+        $role = Role::all();
 
-        return DataTables::of($user)
-            ->addColumn('action', function ($user){
+        return DataTables::of($role)
+            ->addColumn('action', function ($role){
                 return view('admin.components.action-buttons', [
-                    'edit_url'       => route('admin.users.edit', $user->id),
-                    'delete_url'     => route('admin.users.destroy', $user->id),
-                    'show_url'     => route('admin.users.show', $user->id)
+                    'edit_url'       => route('admin.roles.edit', $role->id),
+                    'delete_url'     => route('admin.roles.destroy', $role->id),
+                    'show_url'     => route('admin.roles.show', $role->id)
                 ]);
             })
-            ->addColumn('created_at', function ($user){
-                return $user->created_at->format('d F Y \a\t h:i A');
+            ->addColumn('created_at', function ($role){
+                return $role->created_at->format('d F Y \a\t h:i A');
             })
             ->escapeColumns([])
             ->make(true);
