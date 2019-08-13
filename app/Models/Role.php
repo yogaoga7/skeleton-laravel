@@ -11,7 +11,7 @@ class Role extends Model
         'name',
         'description',
         'slug',
-        'status',
+        'state',
         'permissions',
         'notifications',
         'dashboard_access'

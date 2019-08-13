@@ -12,7 +12,7 @@ Route::group([ 'as' => 'admin.' ], function () {
         Route::group(['middleware' => 'access.admin'], function (){
 
             Route::resource('users', 'User\UserController');
-            Route::resource('roles', 'Role\RoleController');
+            Route::resource('roles', 'Roles\RoleController');
 
             Route::prefix('/access')->group(function() {
                 /**

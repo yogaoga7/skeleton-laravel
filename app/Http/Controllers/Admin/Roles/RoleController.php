@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\Roles;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\Admin\RoleRequest;
+
 use App\Models\Role;
 
 use Gate;
@@ -51,17 +53,21 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
         try {
-            $request->merge([ 'password' => bcrypt($request->password) ]);
+            $request->merge([ 
+                'slug' => str_slug($request->name),
+                'permissions' => [],
+                'state' => 'active'
+                ]);
 
             $role = Role::create($request->all());
 
             flash('Role '. $role->slug.' successfully created', 'success');
             return redirect()->route('admin.roles.index');
         } catch (\Exception $e) {
-            flash('Failed '. $e->getMessage(), 'error');
+            flash('Failed '. $e->getMessage(), 'errors');
             return redirect()->back();
         }
     }
@@ -107,17 +113,22 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, $id)
     {
         try {
+            $request->merge([ 
+            'slug' => str_slug($request->name),
+            'permissions' => [],
+            'state' => 'active'
+            ]);
             $role = Role::findOrFail($id);
+            $role->update($request->all());
             
-
             flash('Role '. $role->email.' successfully updated', 'success');
 
             return redirect()->back();
         } catch (\Exception $e) {
-            flash('Failed '. $e->getMessage(), 'error');
+            flash('Failed '. $e->getMessage(), 'errors');
             return redirect()->back();
         }
     }
